@@ -47,3 +47,50 @@ sections.forEach((section) => sectionObserver.observe(section));
 window.addEventListener("scroll", () => {
 	header.classList.toggle("scrolled", window.scrollY > 12);
 }, { passive: true });
+
+const diagrams = [...document.querySelectorAll(".feature-diagram")];
+
+function layoutDiagram(diagram) {
+	const svg = diagram.querySelector(".diagram-lines");
+	const pulse = diagram.querySelector(".diagram-pulse");
+	const nodeA = diagram.querySelector(".node-a");
+	const nodeB = diagram.querySelector(".node-b");
+	const nodeC = diagram.querySelector(".node-c");
+	if (!svg || !pulse || !nodeA || !nodeB || !nodeC) return;
+
+	const container = diagram.getBoundingClientRect();
+	const toLocal = (node) => {
+		const rect = node.getBoundingClientRect();
+		return { x: rect.left - container.left, y: rect.top - container.top, width: rect.width, height: rect.height };
+	};
+
+	const a = toLocal(nodeA);
+	const b = toLocal(nodeB);
+	const c = toLocal(nodeC);
+	// as linhas convergem no topo do nó "análise", ponto real de encontro visual
+	const target = { x: b.x + b.width / 2, y: b.y };
+
+	svg.setAttribute("viewBox", `0 0 ${container.width} ${container.height}`);
+
+	const lineA = svg.querySelector(".line-a");
+	lineA.setAttribute("x1", a.x + a.width / 2);
+	lineA.setAttribute("y1", a.y + a.height);
+	lineA.setAttribute("x2", target.x);
+	lineA.setAttribute("y2", target.y);
+
+	const lineB = svg.querySelector(".line-b");
+	lineB.setAttribute("x1", c.x + c.width / 2);
+	lineB.setAttribute("y1", c.y + c.height);
+	lineB.setAttribute("x2", target.x);
+	lineB.setAttribute("y2", target.y);
+
+	pulse.style.left = `${target.x}px`;
+	pulse.style.top = `${target.y}px`;
+}
+
+if (diagrams.length) {
+	const layoutAllDiagrams = () => diagrams.forEach(layoutDiagram);
+	layoutAllDiagrams();
+	window.addEventListener("load", layoutAllDiagrams);
+	window.addEventListener("resize", layoutAllDiagrams, { passive: true });
+}

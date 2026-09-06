@@ -8,6 +8,8 @@
 - Projeto Sorteador de Numeros publicado em `Raphael-Bezerra/sorteador-de-numeros`.
 - Card do Sorteador de Numeros adicionado a secao de mini projetos.
 - Integracao publicada no commit `da379be`.
+- Histórico de IA aplicada adicionado à landing page: ferramentas, agentes,
+  contexto persistente, Prompt Engineering e validação humana.
 
 ## Branch atual
 
@@ -23,3 +25,4 @@
 - Adicionar projetos, jornada, tecnologias e case publico sanitizado do CheckFlow.
 - Validar a pagina em navegadores e revisar URLs de LinkedIn e e-mail antes de publicar.
 - Confirmar o deployment do GitHub Pages do Sorteador antes de publicar a integracao do portfolio.
+- Publicar a atualização de IA aplicada após validação visual.

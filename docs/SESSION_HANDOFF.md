@@ -10,6 +10,9 @@
 - Integracao publicada no commit `da379be`.
 - Histórico de IA aplicada adicionado à landing page: ferramentas, agentes,
   contexto persistente, Prompt Engineering e validação humana.
+- Projeto AluGames publicado em `Raphael-Bezerra/alugames` (GitHub Pages configurado).
+- Card do AluGames adicionado como mini projeto 03, substituindo o placeholder
+  "Próximo experimento"; novo placeholder 04 criado em seu lugar.
 
 ## Branch atual
 
@@ -26,3 +29,5 @@
 - Validar a pagina em navegadores e revisar URLs de LinkedIn e e-mail antes de publicar.
 - Confirmar o deployment do GitHub Pages do Sorteador antes de publicar a integracao do portfolio.
 - Publicar a atualização de IA aplicada após validação visual.
+- Fazer commit e push da atualização do card do AluGames.
+

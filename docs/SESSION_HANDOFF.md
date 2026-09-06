@@ -29,5 +29,4 @@
 - Validar a pagina em navegadores e revisar URLs de LinkedIn e e-mail antes de publicar.
 - Confirmar o deployment do GitHub Pages do Sorteador antes de publicar a integracao do portfolio.
 - Publicar a atualização de IA aplicada após validação visual.
-- Fazer commit e push da atualização do card do AluGames.
 

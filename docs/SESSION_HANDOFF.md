@@ -7,6 +7,7 @@
 - Implementacao visual e interativa da ETAPA 3 realizada localmente.
 - Projeto Sorteador de Numeros publicado em `Raphael-Bezerra/sorteador-de-numeros`.
 - Card do Sorteador de Numeros adicionado a secao de mini projetos.
+- Integracao publicada no commit `da379be`.
 
 ## Branch atual
 

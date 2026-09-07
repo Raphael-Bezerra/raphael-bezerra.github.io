@@ -23,6 +23,9 @@
   anteriores em cache após a publicação.
 - Ilustrações de fundo dos mini projetos refinadas para ícones vetoriais locais
   de traço padronizado, mantendo posição, opacidade e responsividade.
+- Ícones de fundo dos mini projetos reduzidos para uma presença mais sutil.
+- Case CheckFlow atualizado com marca vetorial local e diagrama técnico mais
+  definido, sem alterar informações públicas do case.
 - Ilustrações SVG locais, opacas e posicionadas ao fundo foram adicionadas aos
   quatro cards de mini projetos; desktop e mobile foram validados.
 

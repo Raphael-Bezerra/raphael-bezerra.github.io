@@ -51,12 +51,18 @@ window.addEventListener("scroll", () => {
 const diagrams = [...document.querySelectorAll(".feature-diagram")];
 
 function layoutDiagram(diagram) {
+	if (!diagram.classList.contains("process-diagram")) {
+		diagram.classList.add("process-diagram");
+		diagram.innerHTML = '<div class="process-step step-received"><span class="process-index">01</span><span>Checklist recebido</span></div><div class="process-step step-validation"><span class="process-index">02</span><span>Validação</span></div><div class="process-outcome outcome-approved"><span>Conforme</span><b>→</b><span>Liberado</span></div><div class="process-outcome outcome-pending"><span>NC</span><b>→</b><span>Tratativa</span></div><div class="process-step step-record"><span class="process-index">03</span><span>Registro</span></div><svg class="diagram-lines"><line class="diagram-line line-received"></line><line class="diagram-line line-validation"></line><line class="diagram-line line-approved"></line><line class="diagram-line line-pending"></line></svg>';
+	}
+
 	const svg = diagram.querySelector(".diagram-lines");
-	const pulse = diagram.querySelector(".diagram-pulse");
-	const nodeA = diagram.querySelector(".node-a");
-	const nodeB = diagram.querySelector(".node-b");
-	const nodeC = diagram.querySelector(".node-c");
-	if (!svg || !pulse || !nodeA || !nodeB || !nodeC) return;
+	const received = diagram.querySelector(".step-received");
+	const validation = diagram.querySelector(".step-validation");
+	const record = diagram.querySelector(".step-record");
+	const approved = diagram.querySelector(".outcome-approved");
+	const pending = diagram.querySelector(".outcome-pending");
+	if (!svg || !received || !validation || !record || !approved || !pending) return;
 
 	const container = diagram.getBoundingClientRect();
 	const toLocal = (node) => {
@@ -64,28 +70,27 @@ function layoutDiagram(diagram) {
 		return { x: rect.left - container.left, y: rect.top - container.top, width: rect.width, height: rect.height };
 	};
 
-	const a = toLocal(nodeA);
-	const b = toLocal(nodeB);
-	const c = toLocal(nodeC);
-	// as linhas convergem no topo do nó "análise", ponto real de encontro visual
-	const target = { x: b.x + b.width / 2, y: b.y };
+	const receivedBox = toLocal(received);
+	const validationBox = toLocal(validation);
+	const recordBox = toLocal(record);
+	const approvedBox = toLocal(approved);
+	const pendingBox = toLocal(pending);
 
 	svg.setAttribute("viewBox", `0 0 ${container.width} ${container.height}`);
 
-	const lineA = svg.querySelector(".line-a");
-	lineA.setAttribute("x1", a.x + a.width / 2);
-	lineA.setAttribute("y1", a.y + a.height);
-	lineA.setAttribute("x2", target.x);
-	lineA.setAttribute("y2", target.y);
+	const connect = (selector, from, to, dashed = false) => {
+		const line = svg.querySelector(selector);
+		line.setAttribute("x1", from.x);
+		line.setAttribute("y1", from.y);
+		line.setAttribute("x2", to.x);
+		line.setAttribute("y2", to.y);
+		line.style.strokeDasharray = dashed ? "4 5" : "none";
+	};
 
-	const lineB = svg.querySelector(".line-b");
-	lineB.setAttribute("x1", c.x + c.width / 2);
-	lineB.setAttribute("y1", c.y + c.height);
-	lineB.setAttribute("x2", target.x);
-	lineB.setAttribute("y2", target.y);
-
-	pulse.style.left = `${target.x}px`;
-	pulse.style.top = `${target.y}px`;
+	connect(".line-received", { x: receivedBox.x + 10, y: receivedBox.y + receivedBox.height }, { x: validationBox.x + 10, y: validationBox.y });
+	connect(".line-validation", { x: validationBox.x + 10, y: validationBox.y + validationBox.height }, { x: recordBox.x + 10, y: recordBox.y });
+	connect(".line-approved", { x: validationBox.x + validationBox.width, y: validationBox.y + validationBox.height / 2 }, { x: approvedBox.x, y: approvedBox.y + approvedBox.height / 2 });
+	connect(".line-pending", { x: validationBox.x + validationBox.width, y: validationBox.y + validationBox.height / 2 }, { x: pendingBox.x, y: pendingBox.y + pendingBox.height / 2 }, true);
 }
 
 if (diagrams.length) {

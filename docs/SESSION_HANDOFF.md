@@ -21,6 +21,10 @@
   JavaScript, preservando a visualização responsiva.
 - Referência ao CSS versionada para evitar que navegadores mantenham os estilos
   anteriores em cache após a publicação.
+- Ilustrações de fundo dos mini projetos refinadas para ícones vetoriais locais
+  de traço padronizado, mantendo posição, opacidade e responsividade.
+- Ilustrações SVG locais, opacas e posicionadas ao fundo foram adicionadas aos
+  quatro cards de mini projetos; desktop e mobile foram validados.
 
 ## Branch atual
 

@@ -23,6 +23,17 @@ if (menuToggle && navLinks) {
 	});
 }
 
+const archiveToggle = document.querySelector(".archive-toggle");
+const archivePanel = document.querySelector(".archive-panel");
+
+if (archiveToggle && archivePanel) {
+	archiveToggle.addEventListener("click", () => {
+		const isOpen = archiveToggle.getAttribute("aria-expanded") === "true";
+		archiveToggle.setAttribute("aria-expanded", String(!isOpen));
+		archivePanel.hidden = isOpen;
+	});
+}
+
 const revealObserver = new IntersectionObserver((entries, observer) => {
 	entries.forEach((entry) => {
 		if (entry.isIntersecting) {

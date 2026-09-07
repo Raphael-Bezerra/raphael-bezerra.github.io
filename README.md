@@ -13,8 +13,10 @@ Minha experiência combina desenvolvimento de soluções, automação de process
 ## Projetos
 
 - [CheckFlow](https://raphael-bezerra.github.io/#projetos) — case técnico público e sanitizado de uma solução privada.
-- [Jogo do Número Secreto](https://raphael-bezerra.github.io/jogo-do-numero-secreto/) — projeto de lógica de programação com JavaScript.
 - [Sorteador de Números](https://raphael-bezerra.github.io/sorteador-de-numeros/) — aplicação para gerar números aleatórios sem repetição.
+- [AluGames](https://raphael-bezerra.github.io/alugames/) — página de aluguel de boardgames com alternância de status.
+- [Carrinho de Compras](https://raphael-bezerra.github.io/carrinho-de-compras/) — carrinho com cálculo de subtotais, total e validação de quantidade.
+- [e-Ticket](https://raphael-bezerra.github.io/ingresso/) — simulador de compra de ingressos com controle de disponibilidade por setor.
 
 ## Contato
 

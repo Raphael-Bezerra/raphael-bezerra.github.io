@@ -17,6 +17,8 @@
 - Card do Carrinho de Compras adicionado como mini projeto 04, substituindo o
   placeholder "Próximo experimento".
 - Integração do Carrinho de Compras validada no GitHub Pages em mobile.
+- Tags dos mini projetos atualizadas com ícones e cores de HTML, CSS e
+  JavaScript, preservando a visualização responsiva.
 
 ## Branch atual
 

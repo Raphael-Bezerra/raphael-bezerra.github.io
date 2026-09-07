@@ -19,6 +19,8 @@
 - Integração do Carrinho de Compras validada no GitHub Pages em mobile.
 - Tags dos mini projetos atualizadas com ícones e cores de HTML, CSS e
   JavaScript, preservando a visualização responsiva.
+- Referência ao CSS versionada para evitar que navegadores mantenham os estilos
+  anteriores em cache após a publicação.
 
 ## Branch atual
 
